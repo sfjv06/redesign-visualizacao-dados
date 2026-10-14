@@ -156,8 +156,8 @@ d3.csv("../dados/tratados/coachella.csv")
       .style("height", "auto");
 
     const xLinha = d3
-      .scalePoint()
-      .domain(dados.map((d) => d.year))
+      .scaleLinear()
+      .domain(d3.extent(dados, (d) => d.year))
       .range([margem.left, largura - margem.right]);
 
     const yLinha = d3
@@ -182,7 +182,12 @@ d3.csv("../dados/tratados/coachella.csv")
     svgLinha
       .append("g")
       .attr("transform", `translate(0,${altura - margem.bottom})`)
-      .call(d3.axisBottom(xLinha).tickFormat(d3.format("d")));
+      .call(
+        d3
+          .axisBottom(xLinha)
+          .tickValues(dados.map((d) => d.year))
+          .tickFormat(d3.format("d")),
+      );
 
     svgLinha
       .append("g")

@@ -1,3 +1,4 @@
+// Carrega os dados tratados das montanhas-russas a partir do arquivo CSV.
 d3.csv("../dados/tratados/montanhas.csv")
   .then(function (dados) {
     dados.forEach(function (d) {
