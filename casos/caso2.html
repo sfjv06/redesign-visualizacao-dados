@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caso 2 - Impacto da Pandemia no Transporte Aéreo</title>
+    <link rel="stylesheet" href="../css/caso2.css" />
+  </head>
+  <body>
+    <body>
+    <div id="caso2">
+    <main>
+      <header>
+        <h1>O impacto da pandemia nas viagens aéreas dos EUA</h1>
+        <p>
+          Uma análise da evolução diária de passageiros nos aeroportos
+          americanos entre março de 2020 e janeiro de 2021.
+        </p>
+      </header>
+
+      <section id="visualizacao-original">
+        <h2>Visualização original — CNBC</h2>
+
+        <p>
+          O gráfico original apresenta a evolução diária do número de
+          passageiros que passaram pelos pontos de segurança dos aeroportos dos
+          Estados Unidos, entre março de 2020 e janeiro de 2021, destacando a
+          média móvel de 7 dias.
+        </p>
+
+        <figure class="figura-original">
+          <img
+            src="../imagens/grafico-original-cnbc.png"
+            alt="Gráfico original da CNBC sobre o transporte aéreo
+            nos Estados Unidos durante a pandemia, mostrando
+            passageiros diários e média móvel de 7 dias."
+          />
+
+          <figcaption>
+            Fonte: CNBC, com dados da Transportation Security Administration
+            (TSA), atualizados até 26/01/2021. Visualização selecionada a partir
+            do desafio Makeover Monday — Semana 16 de 2021.
+            <a
+              href="https://www.cnbc.com/2021/01/27/us-air-travel-falls-to-lowest-since-july-as-covid-infections-travel-restrictions-hinder-recovery.html"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultar publicação original </a
+            >.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="redesign-1">
+        <h2>Redesign 1 — Queda e recuperação do movimento aéreo</h2>
+        <p>
+          Evolução do movimento de passageiros em relação à média móvel de 7
+          dias registrada em 01/03/2020, utilizada como referência de 100%.
+          Valores menores indicam movimento inferior ao observado nessa data.
+        </p>
+        <div id="grafico-linhas"></div>
+      </section>
+
+      <section id="redesign-2">
+        <h2>Redesign 2 — Mapa de calor temporal</h2>
+        <p>
+          Distribuição diária do número de passageiros nos aeroportos
+          americanos. Cada célula representa um dia, e a intensidade da cor
+          indica o volume de passageiros.
+        </p>
+
+        <div id="grafico-calor"></div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="../js/grafico-linhas.js"></script>
+    <script src="../js/grafico-calor.js"></script>
+    </div>
+  </body>
+</html>
