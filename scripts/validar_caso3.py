@@ -2,7 +2,7 @@
 import duckdb
 from pathlib import Path
 
-arquivo = Path(__file__).parent / "coachella.csv"
+arquivo = Path(__file__).resolve().parent.parent / "dados" / "tratados" / "coachella.csv"
 
 conexao = duckdb.connect()
 

@@ -1,87 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redesign de Visualizações de Dados</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <h1>Redesign de Visualizações de Dados</h1>
-        <p>Trabalho de Visualização de Dados</p>
+      <h1>Redesign de Visualizações de Dados</h1>
+      <p>Trabalho de Visualização de Dados</p>
     </header>
 
     <main>
-        <section>
-            <h2>Caso 1 - Montanhas-russas</h2>
-            <p>Análise das maiores quedas de montanhas-russas do mundo.</p>
+      <section>
+        <h2>Caso 1 - Montanhas-russas</h2>
+        <p>Análise das maiores quedas de montanhas-russas do mundo.</p>
 
+        <h3>Visualização Original</h3>
 
-            <h3>Visualização Original</h3>
+        <div id="grafico-original">
+          <img
+            src="imagens/original_viz.png"
+            alt="Visualização original das maiores quedas de montanhas-russas"
+            class="imagem-original"
+          />
 
-            <div id="grafico-original">
-                <img src="imagens/original_viz.png" alt="Visualização original das maiores quedas de montanhas-russas"
-                    class="imagem-original">
-
-                <p>
-                    Fonte: TripSavvy — Makeover Monday 2026/W01
-                </p>
-            </div>
+          <p>Fonte: TripSavvy — Makeover Monday 2026/W01</p>
+        </div>
 
         <div class="painel-controles">
-    <label for="filtro-pais">Filtrar por país:</label>
-    <select id="filtro-pais">
-        <option value="Todos">Todos os países</option>
-    </select>
-    <button id="limpar-filtro" type="button">Limpar filtro</button>
-</div>
+          <label for="filtro-pais">Filtrar por país:</label>
+          <select id="filtro-pais">
+            <option value="Todos">Todos os países</option>
+          </select>
+          <button id="limpar-filtro" type="button">Limpar filtro</button>
+        </div>
 
-            <h3>Redesign 1 - Barras Horizontais</h3>
-            <div id="grafico-barras"></div>
+        <h3>Redesign 1 - Barras Horizontais</h3>
+        <div id="grafico-barras"></div>
 
-            <h3>Redesign 2 - Dot Plot</h3>
-            <div id="grafico-pontos"></div>
-        </section>
+        <h3>Redesign 2 - Dot Plot</h3>
+        <div id="grafico-pontos"></div>
+      </section>
 
+      <section id="caso3">
+        <h2>Caso 3 — Coachella</h2>
 
-        <section id="caso3">
+        <p>
+          Análise da quantidade de artistas anunciados para cada dia do festival
+          entre 2018 e 2026.
+        </p>
 
-            <h2>Caso 3 — Coachella</h2>
+        <h3>Visualização Original</h3>
 
-            <p>
-                Análise da quantidade de artistas anunciados
-                para cada dia do festival entre 2018 e 2026.
-            </p>
+        <div class="grafico-original">
+          <img
+            src="imagens/coachella-original.png"
+            alt="Gráfico original do Coachella comparando sexta, sábado, domingo e total de artistas por ano"
+            class="imagem-original"
+          />
 
-            <h3>Visualização Original</h3>
+          <p>Fonte: Chartmetric — Makeover Monday 2026/W23</p>
+        </div>
 
-            <div class="grafico-original">
-                <img src="imagens/coachella-original.png"
-                    alt="Gráfico original do Coachella comparando sexta, sábado, domingo e total de artistas por ano"
-                    class="imagem-original">
+        <h3>Redesign 1 — Comparação entre os dias</h3>
+        <div id="coachella-redesign1"></div>
 
-                <p>
-                    Fonte: Chartmetric — Makeover Monday 2026/W23
-                </p>
-            </div>
-
-            <h3>Redesign 1 — Comparação entre os dias</h3>
-            <div id="coachella-redesign1"></div>
-
-            <h3>Redesign 2 — Evolução do total de artistas</h3>
-            <div id="coachella-redesign2"></div>
-
-        </section>
-
-
+        <h3>Redesign 2 — Evolução do total de artistas</h3>
+        <div id="coachella-redesign2"></div>
+      </section>
     </main>
-<script src="js/caso1.js"></script>
-<script src="caso3-coachella/coachella.js"></script>
-</body>
-
+    <script src="js/caso1.js"></script>
+    <script src="js/coachella.js"></script>
+  </body>
 </html>
