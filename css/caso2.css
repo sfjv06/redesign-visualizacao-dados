@@ -1,0 +1,158 @@
+/* ==========================================
+   CASO 2 — TRANSPORTE AÉREO NOS EUA
+   Estilos isolados dos demais casos
+   ========================================== */
+
+#caso2 {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  color: #243247;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+#caso2 *,
+#caso2 *::before,
+#caso2 *::after {
+  box-sizing: border-box;
+}
+
+/* Títulos e textos */
+#caso2 h1 {
+  font-size: 32px;
+  color: #163b65;
+}
+
+#caso2 header {
+  margin-bottom: 40px;
+}
+
+#caso2 header p,
+#caso2 section p {
+  color: #596579;
+  line-height: 1.6;
+}
+
+/* Seções */
+#caso2 section {
+  background-color: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* Gráfico de linhas */
+#caso2 #grafico-linhas {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#caso2 #grafico-linhas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Linhas de referência */
+#caso2 .grade line {
+  stroke: #e2e8f0;
+  stroke-dasharray: 3, 3;
+}
+
+#caso2 .grade path {
+  display: none;
+}
+
+/* Eixos */
+#caso2 .eixo text {
+  fill: #64748b;
+  font-size: 12px;
+}
+
+#caso2 .eixo path,
+#caso2 .eixo line {
+  stroke: #94a3b8;
+}
+
+/* Linha vertical de interação */
+#caso2 .linha-guia {
+  stroke: #64748b;
+  stroke-width: 1;
+  stroke-dasharray: 4, 4;
+  pointer-events: none;
+}
+
+/* Tooltip */
+#caso2 .tooltip {
+  position: absolute;
+  z-index: 10;
+  width: 210px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  background-color: #163b65;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+  font-size: 13px;
+}
+
+#caso2 .tooltip p {
+  margin: 7px 0 0;
+  color: #e2e8f0;
+  font-size: 12px;
+}
+
+/* Espaçamento entre os redesigns */
+#caso2 #redesign-2 {
+  margin-top: 32px;
+}
+
+/* Mapa de calor */
+#caso2 #grafico-calor {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+}
+
+#caso2 #grafico-calor svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#caso2 .celula-calor {
+  cursor: pointer;
+  transition: stroke 0.15s ease;
+}
+
+/* Visualização original */
+#caso2 #visualizacao-original {
+  margin-bottom: 32px;
+}
+
+#caso2 .figura-original {
+  margin: 24px 0 0;
+}
+
+#caso2 .figura-original img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+#caso2 .figura-original figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #64748b;
+}
+
+#caso2 .figura-original a {
+  color: #12558a;
+  text-decoration: underline;
+}
