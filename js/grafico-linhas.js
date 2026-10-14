@@ -1,24 +1,20 @@
-const caminhoCSV = "../dados/tratados/tsa_passageiros_2020_2021.csv";
+const caminhoCSV = "../dados/tratados/passageiros_mensais_eua.csv";
 
 d3.csv(caminhoCSV, (d) => ({
-  date: d3.timeParse("%Y-%m-%d")(d.date),
+  date: new Date(+d.year, +d.month - 1, 1),
   passengers: +d.passengers,
-  moving_avg_7d: +d.moving_avg_7d,
 }))
   .then((dados) => {
     dados = dados
-      .filter((d) => d.date && Number.isFinite(d.moving_avg_7d))
+      .filter((d) => d.date && Number.isFinite(d.passengers))
       .sort((a, b) => a.date - b.date);
 
     if (!dados.length) {
       throw new Error("Não há dados válidos.");
     }
 
-    // Referência: média móvel em 01/03/2020
-    const referencia = dados[0].moving_avg_7d;
-
     dados.forEach((d) => {
-      d.indice = (d.moving_avg_7d / referencia) * 100;
+      d.milhoes = d.passengers / 1000000;
     });
 
     const largura = 950;
@@ -42,35 +38,9 @@ d3.csv(caminhoCSV, (d) => ({
 
     const y = d3
       .scaleLinear()
-      .domain([
-        0,
-        Math.max(
-          110,
-          d3.max(dados, (d) => d.indice),
-        ),
-      ])
+      .domain([0, d3.max(dados, (d) => d.milhoes)])
       .nice()
       .range([altura - margem.bottom, margem.top]);
-
-    // Faixa de referência: 100%
-    svg
-      .append("line")
-      .attr("x1", margem.left)
-      .attr("x2", largura - margem.right)
-      .attr("y1", y(100))
-      .attr("y2", y(100))
-      .attr("stroke", "#b45309")
-      .attr("stroke-dasharray", "6,5")
-      .attr("stroke-width", 1.5);
-
-    svg
-      .append("text")
-      .attr("x", largura - margem.right)
-      .attr("y", y(100) - 10)
-      .attr("text-anchor", "end")
-      .attr("fill", "#92400e")
-      .attr("font-size", 13)
-      .text("Referência: 100% em 01/03/2020");
 
     // Eixos
     svg
@@ -80,8 +50,8 @@ d3.csv(caminhoCSV, (d) => ({
       .call(
         d3
           .axisBottom(x)
-          .ticks(d3.timeMonth.every(2))
-          .tickFormat(d3.timeFormat("%b/%y")),
+          .ticks(d3.timeYear.every(2))
+          .tickFormat(d3.timeFormat("%Y")),
       );
 
     svg
@@ -92,7 +62,7 @@ d3.csv(caminhoCSV, (d) => ({
         d3
           .axisLeft(y)
           .ticks(6)
-          .tickFormat((d) => `${d}%`),
+          .tickFormat((d) => `${d} mi`),
       );
 
     // Área preenchida abaixo da curva
@@ -100,7 +70,7 @@ d3.csv(caminhoCSV, (d) => ({
       .area()
       .x((d) => x(d.date))
       .y0(y(0))
-      .y1((d) => y(d.indice));
+      .y1((d) => y(d.milhoes));
 
     svg
       .append("path")
@@ -113,7 +83,7 @@ d3.csv(caminhoCSV, (d) => ({
     const linha = d3
       .line()
       .x((d) => x(d.date))
-      .y((d) => y(d.indice));
+      .y((d) => y(d.milhoes));
 
     svg
       .append("path")
@@ -124,14 +94,18 @@ d3.csv(caminhoCSV, (d) => ({
       .attr("stroke-width", 3.5);
 
     // Pontos importantes
-    const menor = d3.least(dados, (d) => d.indice);
+    const menor2020 = d3.least(
+      dados.filter((d) => d.date.getFullYear() === 2020),
+      (d) => d.milhoes,
+    );
+
     const ultimo = dados[dados.length - 1];
 
     function destacar(dado, rotulo, deslocamentoY) {
       svg
         .append("circle")
         .attr("cx", x(dado.date))
-        .attr("cy", y(dado.indice))
+        .attr("cy", y(dado.milhoes))
         .attr("r", 5)
         .attr("fill", "#e76f51")
         .attr("stroke", "white")
@@ -139,8 +113,9 @@ d3.csv(caminhoCSV, (d) => ({
 
       svg
         .append("text")
-        .attr("x", x(dado.date) + 12)
-        .attr("y", y(dado.indice) + deslocamentoY)
+        .attr("x", x(dado.date) - 12)
+        .attr("y", y(dado.milhoes) + deslocamentoY)
+        .attr("text-anchor", "end")
         .attr("font-size", 14)
         .attr("font-weight", 700)
         .attr("fill", "#334155")
@@ -148,23 +123,23 @@ d3.csv(caminhoCSV, (d) => ({
         .attr("stroke", "#ffffff")
         .attr("stroke-width", 5)
         .attr("stroke-linejoin", "round")
-        .text(`${rotulo}: ${dado.indice.toFixed(1)}%`);
+        .text(`${rotulo}: ${dado.milhoes.toFixed(1)} mi`);
     }
 
-    destacar(menor, "Menor movimento", -35);
+    destacar(menor2020, "Menor movimento em 2020", -25);
 
     // Rótulo final alinhado à direita do gráfico
     svg
       .append("circle")
       .attr("cx", x(ultimo.date))
-      .attr("cy", y(ultimo.indice))
+      .attr("cy", y(ultimo.milhoes))
       .attr("r", 5)
       .attr("fill", "#12558a");
 
     svg
       .append("text")
       .attr("x", x(ultimo.date) - 15)
-      .attr("y", y(ultimo.indice) + 35)
+      .attr("y", y(ultimo.milhoes) + 35)
       .attr("text-anchor", "end")
       .attr("font-size", 14)
       .attr("font-weight", 700)
@@ -173,7 +148,7 @@ d3.csv(caminhoCSV, (d) => ({
       .attr("stroke", "#ffffff")
       .attr("stroke-width", 5)
       .attr("stroke-linejoin", "round")
-      .text(`Final: ${ultimo.indice.toFixed(1)}%`);
+      .text(`Out/2020: ${ultimo.milhoes.toFixed(1)} mi`);
 
     // Tooltip
     const tooltip = d3
@@ -182,7 +157,7 @@ d3.csv(caminhoCSV, (d) => ({
       .attr("class", "tooltip")
       .style("display", "none");
 
-    const formatarData = d3.timeFormat("%d/%m/%Y");
+    const formatarData = d3.timeFormat("%m/%Y");
     const bissetriz = d3.bisector((d) => d.date).center;
 
     const guia = svg
@@ -211,11 +186,12 @@ d3.csv(caminhoCSV, (d) => ({
         guia.attr("x1", posX).attr("x2", posX).style("display", null);
 
         tooltip.style("display", "block").html(`
-                    <strong>${formatarData(dado.date)}</strong>
-                    <p>Índice: <strong>${dado.indice.toFixed(1)}%</strong></p>
-                    <p>Média de 7 dias:
-                    <strong>${Math.round(dado.moving_avg_7d).toLocaleString("pt-BR")}</strong></p>
-                `);
+  <strong>${formatarData(dado.date)}</strong>
+  <p>Passageiros:
+  <strong>${dado.passengers.toLocaleString("pt-BR")}</strong></p>
+  <p>Em milhões:
+  <strong>${dado.milhoes.toFixed(1)} mi</strong></p>
+`);
 
         const [px, py] = d3.pointer(
           event,
