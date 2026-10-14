@@ -1,4 +1,4 @@
-d3.csv("dados/tratados/coachella.csv")
+d3.csv("../dados/tratados/coachella.csv")
   .then(function (dados) {
     dados.forEach(function (d) {
       d.year = +d.year;

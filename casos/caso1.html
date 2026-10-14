@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Caso 1 — Montanhas-russas</title>
+    <link rel="stylesheet" href="../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Redesign de Visualizações de Dados</h1>
+      <p>Trabalho de Visualização de Dados</p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Caso 1 - Montanhas-russas</h2>
+        <p>Análise das maiores quedas de montanhas-russas do mundo.</p>
+
+        <h3>Visualização Original</h3>
+
+        <div id="grafico-original">
+          <img
+            src="../imagens/original_viz.png"
+            alt="Visualização original das maiores quedas de montanhas-russas"
+            class="imagem-original"
+          />
+
+          <p>Fonte: TripSavvy — Makeover Monday 2026/W01</p>
+        </div>
+
+        <div class="painel-controles">
+          <label for="filtro-pais">Filtrar por país:</label>
+          <select id="filtro-pais">
+            <option value="Todos">Todos os países</option>
+          </select>
+          <button id="limpar-filtro" type="button">Limpar filtro</button>
+        </div>
+
+        <h3>Redesign 1 - Barras Horizontais</h3>
+        <div id="grafico-barras"></div>
+
+        <h3>Redesign 2 - Dot Plot</h3>
+        <div id="grafico-pontos"></div>
+      </section>
+    </main>
+
+    <script src="../js/caso1.js"></script>
+  </body>
+</html>
