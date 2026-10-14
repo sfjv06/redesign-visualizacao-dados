@@ -1,87 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Redesign de Visualizações de Dados</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-</head>
 
-<body>
-
-    <header>
+    <link rel="stylesheet" href="css/home.css" />
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="container">
+        <span class="etiqueta">Projeto Acadêmico · Visualização de Dados</span>
         <h1>Redesign de Visualizações de Dados</h1>
-        <p>Trabalho de Visualização de Dados</p>
+        <p>
+          Explorando como diferentes escolhas visuais podem transformar a
+          interpretação e a comunicação de informações.
+        </p>
+      </div>
     </header>
 
     <main>
-        <section>
-            <h2>Caso 1 - Montanhas-russas</h2>
-            <p>Análise das maiores quedas de montanhas-russas do mundo.</p>
+      <section class="introducao container">
+        <h2>Sobre o projeto</h2>
+        <p>
+          Este trabalho apresenta a análise e o redesign de três visualizações
+          de dados. Para cada caso, investigamos a representação original e
+          desenvolvemos duas alternativas, buscando melhorar a clareza, a
+          comparação e a compreensão dos dados.
+        </p>
+        <p>
+          As visualizações foram implementadas com D3.js, enquanto o DuckDB foi
+          utilizado para consultas e validação dos dados.
+        </p>
+      </section>
 
+      <section class="casos container">
+        <div class="titulo-secao">
+          <span class="etiqueta">Estudos de caso</span>
+          <h2>Explore as visualizações</h2>
+          <p>Selecione um dos casos para conhecer a análise e os redesigns.</p>
+        </div>
 
-            <h3>Visualização Original</h3>
-
-            <div id="grafico-original">
-                <img src="imagens/original_viz.png" alt="Visualização original das maiores quedas de montanhas-russas"
-                    class="imagem-original">
-
-                <p>
-                    Fonte: TripSavvy — Makeover Monday 2026/W01
-                </p>
-            </div>
-
-        <div class="painel-controles">
-    <label for="filtro-pais">Filtrar por país:</label>
-    <select id="filtro-pais">
-        <option value="Todos">Todos os países</option>
-    </select>
-    <button id="limpar-filtro" type="button">Limpar filtro</button>
-</div>
-
-            <h3>Redesign 1 - Barras Horizontais</h3>
-            <div id="grafico-barras"></div>
-
-            <h3>Redesign 2 - Dot Plot</h3>
-            <div id="grafico-pontos"></div>
-        </section>
-
-
-        <section id="caso3">
-
-            <h2>Caso 3 — Coachella</h2>
-
+        <div class="grade-casos">
+          <article class="card-caso">
+            <span class="numero-caso">01 / MOBILIDADE E LAZER</span>
+            <h3>Montanhas-russas</h3>
             <p>
-                Análise da quantidade de artistas anunciados
-                para cada dia do festival entre 2018 e 2026.
+              Uma análise das maiores quedas de montanhas-russas do mundo,
+              utilizando gráficos de barras e dot plot.
             </p>
+            <a href="casos/caso1.html" class="botao-caso">
+              Explorar caso 1 <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <h3>Visualização Original</h3>
+          <article class="card-caso">
+            <span class="numero-caso">02 / TRANSPORTE AÉREO</span>
+            <h3>Impacto da pandemia nos voos</h3>
+            <p>
+              Uma análise do fluxo de passageiros nos aeroportos dos Estados
+              Unidos durante a pandemia, com evolução temporal e mapa de calor.
+            </p>
+            <a href="casos/caso2.html" class="botao-caso">
+              Explorar caso 2 <span aria-hidden="true">→</span>
+            </a>
+          </article>
 
-            <div class="grafico-original">
-                <img src="imagens/coachella-original.png"
-                    alt="Gráfico original do Coachella comparando sexta, sábado, domingo e total de artistas por ano"
-                    class="imagem-original">
-
-                <p>
-                    Fonte: Chartmetric — Makeover Monday 2026/W23
-                </p>
-            </div>
-
-            <h3>Redesign 1 — Comparação entre os dias</h3>
-            <div id="coachella-redesign1"></div>
-
-            <h3>Redesign 2 — Evolução do total de artistas</h3>
-            <div id="coachella-redesign2"></div>
-
-        </section>
-
-
+          <article class="card-caso">
+            <span class="numero-caso">03 / MÚSICA E CULTURA</span>
+            <h3>Coachella</h3>
+            <p>
+              Uma comparação da quantidade de artistas anunciados por dia do
+              festival e da evolução dos totais entre 2018 e 2026.
+            </p>
+            <a href="casos/caso3.html" class="botao-caso">
+              Explorar caso 3 <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        </div>
+      </section>
     </main>
-<script src="js/caso1.js"></script>
-<script src="caso3-coachella/coachella.js"></script>
-</body>
 
+    <footer class="rodape">
+      <div class="container">
+        <p>Redesign de Visualizações de Dados · Projeto acadêmico</p>
+        <p>D3.js · DuckDB</p>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
+:root {
+  --fundo: #f6f8fc;
+  --branco: #ffffff;
+  --azul-escuro: #17213d;
+  --azul: #4056b5;
+  --roxo: #7353ba;
+  --texto: #4f5870;
+  --borda: #e3e7f0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--fundo);
+  color: var(--azul-escuro);
+  line-height: 1.7;
+}
+
+.container {
+  width: min(1120px, 90%);
+  margin: 0 auto;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+  padding: 100px 0 90px;
+  color: var(--branco);
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(156, 131, 255, 0.25),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #17213d, #303e79);
+}
+
+.etiqueta {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--roxo);
+  margin-bottom: 18px;
+}
+
+.cabecalho .etiqueta {
+  color: #c4b5fd;
+}
+
+.cabecalho h1 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  max-width: 800px;
+  margin-bottom: 25px;
+}
+
+.cabecalho p {
+  max-width: 650px;
+  font-size: 1.1rem;
+  color: #d7def4;
+}
+
+/* INTRODUÇÃO */
+
+.introducao {
+  padding: 85px 0 50px;
+}
+
+.introducao h2,
+.titulo-secao h2 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: -0.8px;
+  margin-bottom: 18px;
+}
+
+.introducao p {
+  max-width: 850px;
+  color: var(--texto);
+  margin-bottom: 15px;
+}
+
+/* CASOS */
+
+.casos {
+  padding: 35px 0 110px;
+}
+
+.titulo-secao {
+  margin-bottom: 35px;
+}
+
+.titulo-secao p {
+  color: var(--texto);
+}
+
+.grade-casos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.card-caso {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  min-height: 340px;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(23, 33, 61, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.card-caso:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(23, 33, 61, 0.1);
+}
+
+.numero-caso {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  color: var(--roxo);
+  margin-bottom: 22px;
+}
+
+.card-caso h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.45rem;
+  line-height: 1.3;
+  margin-bottom: 16px;
+}
+
+.card-caso p {
+  color: var(--texto);
+  font-size: 0.94rem;
+  margin-bottom: 28px;
+}
+
+.botao-caso {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding: 13px 18px;
+  border-radius: 10px;
+  background: var(--azul-escuro);
+  color: var(--branco);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+
+.botao-caso:hover {
+  background: var(--azul);
+}
+
+.botao-caso:focus-visible {
+  outline: 3px solid var(--roxo);
+  outline-offset: 3px;
+}
+
+/* RODAPÉ */
+
+.rodape {
+  padding: 30px 0;
+  border-top: 1px solid var(--borda);
+  background: var(--branco);
+}
+
+.rodape .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.rodape p {
+  font-size: 0.85rem;
+  color: var(--texto);
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+  .grade-casos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .cabecalho {
+    padding: 75px 0;
+  }
+
+  .introducao {
+    padding-top: 60px;
+  }
+
+  .casos {
+    padding-bottom: 70px;
+  }
+
+  .grade-casos {
+    grid-template-columns: 1fr;
+  }
+
+  .card-caso {
+    min-height: auto;
+  }
+
+  .rodape .container {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-caso,
+  .botao-caso {
+    transition: none;
+  }
+}
