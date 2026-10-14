@@ -1,0 +1,10 @@
+# Arquivo original grande do Caso 2
+/dados/original/US Monthly Air Passengers.csv
+
+# Arquivos temporários do Python
+__pycache__/
+*.pyc
+
+# Ambientes virtuais
+.venv/
+venv/

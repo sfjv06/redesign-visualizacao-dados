@@ -3,69 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Caso 2 - Impacto da Pandemia no Transporte Aéreo</title>
+    <title>Caso 2 - Passageiros Aéreos nos EUA (2000–2020)</title>
     <link rel="stylesheet" href="../css/caso2.css" />
   </head>
+
   <body>
     <div id="caso2">
       <main>
         <header>
-          <h1>O impacto da pandemia nas viagens aéreas dos EUA</h1>
+          <h1>20 anos de viagens aéreas nos Estados Unidos</h1>
           <p>
-            Uma análise da evolução diária de passageiros nos aeroportos
-            americanos entre março de 2020 e janeiro de 2021.
+            Uma análise da evolução mensal do transporte aéreo nos Estados
+            Unidos, de janeiro de 2000 a outubro de 2020, explorando tendências
+            históricas, padrões sazonais e a queda no movimento de passageiros
+            durante a pandemia.
           </p>
         </header>
 
         <section id="visualizacao-original">
-          <h2>Visualização original — CNBC</h2>
+          <h2>Visualização original — Makeover Monday</h2>
 
           <p>
-            O gráfico original apresenta a evolução diária do número de
-            passageiros que passaram pelos pontos de segurança dos aeroportos
-            dos Estados Unidos, entre março de 2020 e janeiro de 2021,
-            destacando a média móvel de 7 dias.
+            A visualização original, intitulada "Monthly Air Passengers in
+            America", apresenta dados mensais de passageiros aéreos nos Estados
+            Unidos entre 2000 e 2020. O conjunto de dados permite investigar a
+            evolução do transporte aéreo ao longo dos anos e identificar
+            mudanças no movimento de passageiros.
           </p>
 
           <figure class="figura-original">
             <img
               src="../imagens/grafico-original-cnbc.png"
-              alt="Gráfico original da CNBC sobre o transporte aéreo
-            nos Estados Unidos durante a pandemia, mostrando
-            passageiros diários e média móvel de 7 dias."
+              alt="Visualização original Monthly Air Passengers in America,
+              utilizada no desafio Makeover Monday de 2021,
+              semana 16."
             />
 
             <figcaption>
-              Fonte: CNBC, com dados da Transportation Security Administration
-              (TSA), atualizados até 26/01/2021. Visualização selecionada a
-              partir do desafio Makeover Monday — Semana 16 de 2021.
+              Fonte: Makeover Monday — Semana 16 de 2021. Conjunto de dados:
+              Monthly Air Passengers in America.
               <a
-                href="https://www.cnbc.com/2021/01/27/us-air-travel-falls-to-lowest-since-july-as-covid-infections-travel-restrictions-hinder-recovery.html"
+                href="https://data.world/makeovermonday/2021w16"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Consultar publicação original </a
+                Consultar o desafio original </a
               >.
             </figcaption>
           </figure>
         </section>
 
         <section id="redesign-1">
-          <h2>Redesign 1 — Queda e recuperação do movimento aéreo</h2>
+          <h2>Redesign 1 — Evolução histórica do transporte aéreo</h2>
+
           <p>
-            Evolução do movimento de passageiros em relação à média móvel de 7
-            dias registrada em 01/03/2020, utilizada como referência de 100%.
-            Valores menores indicam movimento inferior ao observado nessa data.
+            O gráfico de linhas apresenta a quantidade mensal de passageiros
+            aéreos nos Estados Unidos, em milhões, entre janeiro de 2000 e
+            outubro de 2020. A visualização permite observar as oscilações ao
+            longo dos anos e destaca a redução acentuada do movimento aéreo em
+            2020.
           </p>
+
           <div id="grafico-linhas"></div>
         </section>
 
         <section id="redesign-2">
-          <h2>Redesign 2 — Mapa de calor temporal</h2>
+          <h2>Redesign 2 — Mapa de calor por ano e mês</h2>
+
           <p>
-            Distribuição diária do número de passageiros nos aeroportos
-            americanos. Cada célula representa um dia, e a intensidade da cor
-            indica o volume de passageiros.
+            O mapa de calor organiza os dados por ano e mês, permitindo comparar
+            o movimento de passageiros em diferentes períodos. Cada célula
+            representa um mês, e a intensidade da cor indica a quantidade de
+            passageiros. Os meses sem registros disponíveis são apresentados em
+            cinza.
           </p>
 
           <div id="grafico-calor"></div>
