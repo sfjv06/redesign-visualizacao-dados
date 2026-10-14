@@ -1,4 +1,4 @@
-d3.csv("../dados/montanhas.csv")
+d3.csv("../dados/tratados/montanhas.csv")
   .then(function (dados) {
     dados.forEach(function (d) {
       d.queda = Number(d.queda);

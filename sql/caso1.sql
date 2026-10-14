@@ -5,7 +5,7 @@
 
 -- 1. Visualizar todos os registros
 SELECT *
-FROM read_csv_auto('dados/montanhas.csv');
+FROM read_csv_auto('dados/tratados/montanhas.csv');
 
 -- 2. Validar quantidade e estatísticas das quedas
 SELECT
@@ -13,14 +13,14 @@ SELECT
     MIN(queda) AS menor,
     MAX(queda) AS maior,
     ROUND(AVG(queda), 2) AS media
-FROM read_csv_auto('dados/montanhas.csv');
+FROM read_csv_auto('dados/tratados/montanhas.csv');
 
 -- 3. Analisar as atrações por país
 SELECT
     pais,
     COUNT(*) AS quantidade,
     MAX(queda) AS maior_queda
-FROM read_csv_auto('dados/montanhas.csv')
+FROM read_csv_auto('dados/tratados/montanhas.csv')
 GROUP BY pais
 ORDER BY maior_queda DESC;
 
@@ -29,12 +29,12 @@ SELECT
     nome,
     pais,
     queda
-FROM read_csv_auto('dados/montanhas.csv')
+FROM read_csv_auto('dados/tratados/montanhas.csv')
 ORDER BY queda DESC;
 
 -- 5. Verificar registros com informações ausentes
 SELECT *
-FROM read_csv_auto('dados/montanhas.csv')
+FROM read_csv_auto('dados/tratados/montanhas.csv')
 WHERE nome IS NULL
    OR pais IS NULL
    OR queda IS NULL;

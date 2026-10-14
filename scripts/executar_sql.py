@@ -4,7 +4,7 @@ import os
 import duckdb
 
 # Pasta raiz do projeto
-pasta_projeto = Path(__file__).resolve().parent
+pasta_projeto = Path(__file__).resolve().parent.parent
 
 # Caminho do arquivo SQL
 caminho_sql = pasta_projeto / "sql" / "tratamento.sql"
